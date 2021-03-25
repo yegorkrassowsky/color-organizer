@@ -1,14 +1,28 @@
-const AddColorForm = () => {
+import {useState, useRef} from "react"
+const AddColorForm = ( {onNewColor} ) => {
+  const defaultColor = "#ffffff"
+  const _title = useRef(null)
+  const [color, setColor] = useState(defaultColor)
+
+  function addColor() {
+    if ( _title.current.value ) {
+      onNewColor( _title.current.value, color)
+      _title.current.value = ""
+    } else {
+      alert("Please, fill the Title")
+      _title.current.focus()
+    }
+  }
   return (
     <div className="row mt-3">
       <div className="col-sm-10">
-        <input type="text" className="form-control" placeholder="Color Title" />
+        <input type="text" className="form-control" placeholder="Color Title" ref={_title} />
       </div>
       <div className="col-sm">
-        <input type="color" className="form-control form-control-color" />
+        <input type="color" className="form-control form-control-color" value={color} onChange={e => setColor(e.target.value)} />
       </div>
       <div className="col-sm-auto">
-        <button type="submit" className="btn btn-primary">
+        <button type="submit" className="btn btn-primary" onClick={addColor}>
           Add
         </button>
       </div>
