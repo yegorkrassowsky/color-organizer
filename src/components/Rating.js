@@ -1,9 +1,9 @@
 import Stars from "./Stars.js"
 
-const Rating = ({ rating }) => {
+const Rating = ({ rating, onRate=f=>f }) => {
   return (
     <div className="rating">
-      <Stars rating={rating} />
+      <Stars rating={rating} onRate={onRate} />
       <div>{rating} of 5 stars</div>
     </div>
   )

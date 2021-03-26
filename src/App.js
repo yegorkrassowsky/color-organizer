@@ -16,11 +16,21 @@ function App() {
         rating: 0
       }])
   }
+  function removeColor(id) {
+    setColors( prevColors => prevColors.filter(
+      color => color.id !== id
+    ) )
+  }
+  function rateColor(id, rating) {
+    setColors( prevColors => prevColors.map(
+      color => (color.id !== id) ? color : {...color, rating}
+    ) )
+  }
   return (
     <div className="App">
       <div className="container">
         <AddColorForm onNewColor={addColor} />
-        <ColorCards colors={colors} />
+        <ColorCards colors={colors} onRemove={removeColor} onRate={rateColor} />
       </div>
     </div>
   )
