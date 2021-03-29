@@ -1,6 +1,7 @@
+import React from 'react'
 import Rating from "./Rating"
 
-const ColorCard = ({ color, onRemove=f=>f, onRate=f=>f }) => {
+const ColorCard = ( { color, onRemove=f=>f, onRate=f=>f } ) => {
   return (
     <div className="col-sm-4">
       <div className="card">
@@ -18,4 +19,4 @@ const ColorCard = ({ color, onRemove=f=>f, onRate=f=>f }) => {
   )
 }
 
-export default ColorCard
+export default React.memo( ColorCard, (oldProps, newProps) => oldProps.color.rating === newProps.color.rating )
