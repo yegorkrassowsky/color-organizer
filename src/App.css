@@ -1,3 +1,6 @@
+.card {
+  border-width: 2px;
+}
 .card-color {
   height: 200px;
 }
