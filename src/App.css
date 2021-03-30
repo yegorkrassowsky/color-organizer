@@ -27,3 +27,14 @@
 .star.selected {
   background: red;
 }
+.title-container {
+  margin-bottom: 10px;
+}
+.title-container .card-title {
+  padding: 10px 0;
+  margin-bottom: 0;
+}
+.title-container .form-control {
+  font-size: 1.25rem;
+  font-weight: 500;
+}

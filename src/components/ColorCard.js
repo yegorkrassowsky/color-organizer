@@ -30,4 +30,8 @@ const ColorCard = ( { color, onRemove=f=>f, onRate=f=>f, onRename=f=>f } ) => {
   )
 }
 
-export default React.memo( ColorCard )
+function areEqual(prevProps, nextProps) {
+  return prevProps.color.rating === nextProps.color.rating && prevProps.color.title === nextProps.color.title
+}
+
+export default React.memo( ColorCard, areEqual )

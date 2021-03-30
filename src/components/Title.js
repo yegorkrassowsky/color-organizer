@@ -5,30 +5,28 @@ const Title = ({ title, onRename=f=>f, onRemove=f=>f }) => {
   const prevTitleRef = useRef(title)
   const [toggleEdit, setEdit] = useState(false)
   useEffect(()=>{
-    window.addEventListener("keydown", keydownHandler)
-    return () => window.removeEventListener("keydown", keydownHandler)
-  })
-  useEffect(()=>{
     if(toggleEdit) _title.current.focus()
   }, [toggleEdit])
-  function keydownHandler(event) {
+  function keyDownHandler(event) {
     if(event.key === "Enter"){
       endEdit()
     }
   }
   function endEdit() {
+    const title = _title.current.value
     if(title.trim()){
       prevTitleRef.current = title
-    } else {
-      onRename(prevTitleRef.current)
+      onRename(title)
     }
     setEdit(false)
   }
   return (
     <div className="card-body text-center">
+      <div className="title-container">
     {toggleEdit ? 
-      (<div className="mb-2"><input className="form-control d-inline-block w-auto text-center" value={title} onChange={(e)=>onRename(e.target.value)} onBlur={endEdit} ref={_title} type="text"></input></div>) : 
+      (<input className="form-control d-inline-block w-auto text-center" defaultValue={title} onBlur={endEdit} onKeyDown={(e)=>keyDownHandler(e)} ref={_title} type="text"></input>) : 
       (<h5 className="card-title" onClick={()=>setEdit(true)}>{title}</h5>)}
+      </div>
       <button className="btn btn-primary" onClick={onRemove}>Delete</button>
     </div>
     )
