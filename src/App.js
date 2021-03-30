@@ -26,11 +26,16 @@ function App() {
       color => (color.id !== id) ? color : {...color, rating}
     ) )
   }
+  function renameColor(id, title) {
+    setColors( prevColors => prevColors.map(
+      color => (color.id !== id) ? color : {...color, title}
+    ) )
+  }
   return (
     <div className="App">
       <div className="container">
         <AddColorForm onNewColor={addColor} />
-        <ColorCards colors={colors} onRemove={removeColor} onRate={rateColor} />
+        <ColorCards colors={colors} onRemove={removeColor} onRate={rateColor} onRename={renameColor} />
       </div>
     </div>
   )
