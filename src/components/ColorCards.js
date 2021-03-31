@@ -1,6 +1,8 @@
 import ColorCard from "./ColorCard"
+import {useColor} from "./contexts/ColorContext"
 
-const ColorCards = ({ colors=[], onRemove=f=>f, onRate=f=>f, onRename=f=>f}) => {
+const ColorCards = () => {
+  const {colors} = useColor();
   return (
     <div className="row mt-3">
       {(colors.length) ?
@@ -8,9 +10,6 @@ const ColorCards = ({ colors=[], onRemove=f=>f, onRate=f=>f, onRename=f=>f}) => 
           <ColorCard
             key={color.id}
             color={color} 
-            onRemove={() => onRemove(color.id)} 
-            onRate={(rating) => onRate(color, rating)} 
-            onRename={(title) => onRename(color, title)} 
           />
         ))
       :
