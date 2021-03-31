@@ -38,3 +38,31 @@
   font-size: 1.25rem;
   font-weight: 500;
 }
+.toast-container {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+}
+.toast {
+  background-color: blue;
+  animation: toast-in-right .4s;
+}
+@keyframes toast-in-right {
+	from {
+	  transform: translateX(100%);
+	  
+	}
+	to {
+	  transform: translateX(0);
+	}
+}
+
+@keyframes toast-in-left {
+	from {
+		transform: translateX(-100%);
+		
+	}
+	to {
+		transform: translateX(0);
+	}
+}

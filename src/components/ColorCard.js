@@ -1,25 +1,14 @@
-import React, {useRef, useEffect} from "react"
+import React, {useRef} from "react"
 import Rating from "./Rating"
 import Title from "./Title"
 
-const ColorCard = ( { color, onRemove=f=>f, onRate=f=>f, onRename=f=>f } ) => {
+const ColorCard = ( { color, onRemove=f=>f, onRate=f=>f, onRename=f=>f} ) => {
   const cardRef = useRef(null)
-  const prevRatingRef = useRef(false);
   const {title, rating} = color
-  function showStatus() {
-    const prevRating = prevRatingRef.current;
-    if(prevRating) {
-      cardRef.current.style.borderColor = "red"
-      alert(`${title}: rating ${prevRating} -> ${rating}`)
-      cardRef.current.style.removeProperty("border-color")
-    }
-    prevRatingRef.current = rating
-  }
-  useEffect(showStatus, [rating])
   return (
     <div className="col-sm-4">
       <div className="card" ref={cardRef}>
-        <Rating rating={color.rating} onRate={onRate} />
+        <Rating rating={rating} onRate={onRate} />
         <div
           className="card-color"
           style={{ backgroundColor: color.color }}
