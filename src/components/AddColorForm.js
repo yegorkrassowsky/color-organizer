@@ -1,5 +1,5 @@
 import {useState, useRef} from "react"
-import {useColor} from "./contexts/ColorContext"
+import {useColor} from "../contexts/ColorContext"
 
 const AddColorForm = () => {
   const { addColor=f=>f } = useColor();
@@ -9,7 +9,7 @@ const AddColorForm = () => {
 
   function newColor() {
     if ( _title.current.value ) {
-      addColor( _title.current.value, color)
+      addColor( {title: _title.current.value, color} )
       _title.current.value = ""
     } else {
       alert("Please, fill the Title")

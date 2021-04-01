@@ -1,5 +1,5 @@
 import ColorCard from "./ColorCard"
-import {useColor} from "./contexts/ColorContext"
+import {useColor} from "../contexts/ColorContext"
 
 const ColorCards = () => {
   const {colors} = useColor();

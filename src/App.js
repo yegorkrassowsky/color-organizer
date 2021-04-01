@@ -2,7 +2,7 @@ import "./App.css"
 import AddColorForm from "./components/AddColorForm"
 import ColorCards from "./components/ColorCards"
 import ToastList from "./components/toast/ToastList"
-import {ColorProvider} from "./components/contexts/ColorContext"
+import {ColorProvider} from "./contexts/ColorContext"
 
 function App() {
   return (

@@ -1,7 +1,7 @@
 import React, {useRef} from "react"
 import Rating from "./Rating"
 import Title from "./Title"
-import {useColor} from "./contexts/ColorContext"
+import {useColor} from "../contexts/ColorContext"
 
 const ColorCard = ( { color } ) => {
   const { removeColor, rateColor, renameColor } = useColor();
@@ -15,7 +15,7 @@ const ColorCard = ( { color } ) => {
           className="card-color"
           style={{ backgroundColor: color.color }}
         ></div>
-        <Title title={title} onRename={(title)=>renameColor(color, title)} onRemove={()=>removeColor(color.id)} />
+        <Title title={title} onRename={(title)=>renameColor(color, title)} onRemove={()=>removeColor(color)} />
       </div>
     </div>
   )

@@ -1,5 +1,5 @@
 import React from 'react';
-import {useColor} from "../contexts/ColorContext"
+import {useColor} from "../../contexts/ColorContext"
 import Toast from "./Toast"
 
 const ToastList = () => {
