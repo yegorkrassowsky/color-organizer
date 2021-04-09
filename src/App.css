@@ -46,6 +46,11 @@
 .toast {
   background-color: blue;
   animation: toast-in-right .4s;
+  color: #fff;
+  font-weight: 500;
+}
+.toast.out-right {
+  animation: toast-out-right .4s;
 }
 @keyframes toast-in-right {
 	from {
@@ -54,6 +59,15 @@
 	}
 	to {
 	  transform: translateX(0);
+	}
+}
+@keyframes toast-out-right {
+	from {
+	  transform: translateX(0);
+	  
+	}
+	to {
+	  transform: translateX(100%);
 	}
 }
 

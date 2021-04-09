@@ -1,10 +1,11 @@
 import ColorCard from "./ColorCard"
-import {useColor} from "../contexts/ColorContext"
+import { useStore } from '../store';
 
 const ColorCards = () => {
-  const {colors} = useColor();
+  const { state } = useStore()
+  const colors = state.colors
   return (
-    <div className="row mt-3">
+    <div className="row mt-3 gy-4">
       {(colors.length) ?
         colors.map((color) => (
           <ColorCard

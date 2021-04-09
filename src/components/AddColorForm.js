@@ -1,15 +1,15 @@
 import {useState, useRef} from "react"
-import {useColor} from "../contexts/ColorContext"
+import { useStore } from '../store';
 
 const AddColorForm = () => {
-  const { addColor=f=>f } = useColor();
+  const { addColor } = useStore()
   const defaultColor = "#ffffff"
   const _title = useRef(null)
   const [color, setColor] = useState(defaultColor)
 
   function newColor() {
     if ( _title.current.value ) {
-      addColor( {title: _title.current.value, color} )
+      addColor(_title.current.value, color)
       _title.current.value = ""
     } else {
       alert("Please, fill the Title")
