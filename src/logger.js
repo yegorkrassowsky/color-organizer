@@ -18,11 +18,13 @@ const loggerData = (action, state, prevState) => {
     case(C.RATE_COLOR):
       color = getColor(action.id, state)
       oldColor = getColor(action.id, prevState)
+      if(color.rating === oldColor.rating) return false
       return {message: rateColorMessage(color.title, oldColor.rating, color.rating), color: color.color}
     case(C.RENAME_COLOR):
-    color = getColor(action.id, state)
-    oldColor = getColor(action.id, prevState)
-    return {message: renameColorMessage(color.title, oldColor.title), color: color.color}
+      color = getColor(action.id, state)
+      oldColor = getColor(action.id, prevState)
+      if(color.title === oldColor.title) return false
+      return {message: renameColorMessage(color.title, oldColor.title), color: color.color}
     default:
       return false
   }

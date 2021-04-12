@@ -5,6 +5,7 @@ import {toasts as toastsReducer} from './reducers/toasts'
 import {addColorAction, rateColorAction, removeColorAction, renameColorAction} from './actions/color'
 import {addToastAction, removeToastAction} from './actions/toast'
 import {logger} from './logger'
+import PropTypes from 'prop-types'
 
 const initialState = localStorage['redux-store'] ? JSON.parse(localStorage['redux-store']) : {colors: []}
 const store = createContext(initialState);
@@ -18,7 +19,7 @@ const { Provider } = store;
 function useReducerWithLogger(reducer, addToast) {
   let prevState = useRef(initialState);
   let prevAction = useRef(null)
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const [state, dispatch] = useReducer(reducer, initialState)
 
   const dispatchWithLogger = useCallback(
     (reducerAction) => {
@@ -32,10 +33,6 @@ function useReducerWithLogger(reducer, addToast) {
     () => {
       if (state !== initialState) {
         logger(prevAction.current, state, prevState.current, addToast)
-        //console.log(prevAction.current)
-        //console.log("Prev state: ", prevState.current);
-        // console.log("Next state: ", state);
-        // console.groupEnd();
       }
       prevState.current = state;
     },
@@ -60,6 +57,10 @@ const StateProvider = ( { children } ) => {
   }, [state])
 
   return <Provider value={{ state, dispatch, addColor, removeColor, rateColor, renameColor, toasts, removeToast}}>{children}</Provider>
+}
+
+StateProvider.propTypes = {
+  children: PropTypes.node.isRequired,
 }
 
 export { store, StateProvider, useStore }
