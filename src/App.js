@@ -2,7 +2,7 @@ import "./App.css"
 import AddColorForm from "./components/AddColorForm"
 import ColorCards from "./components/ColorCards"
 import ToastList from "./components/toast/ToastList"
-import { StateProvider } from './store';
+import { StateProvider } from './store'
 
 function App() {
   return (
