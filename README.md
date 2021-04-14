@@ -2,4 +2,4 @@
 
 Built with React JS (Functional components and hooks only)
 
-Demo is availiable [here](https://ykdev.site/colors/)
+Demo is available [here](https://ykdev.site/colors/)
