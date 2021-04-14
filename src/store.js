@@ -6,8 +6,9 @@ import {addColorAction, rateColorAction, removeColorAction, renameColorAction} f
 import {addToastAction, removeToastAction} from './actions/toast'
 import {logger} from './logger'
 import PropTypes from 'prop-types'
+import defaultColors from './data/defaultColors'
 
-const initialState = localStorage['redux-store'] ? JSON.parse(localStorage['redux-store']) : {colors: []}
+const initialState = localStorage['redux-store'] ? JSON.parse(localStorage['redux-store']) : defaultColors
 const store = createContext(initialState);
 
 const useStore = () => {
