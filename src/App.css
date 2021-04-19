@@ -1,15 +1,29 @@
+.form-control-color {
+  width: 50px;
+}
 .card {
   border-width: 2px;
 }
 .card-color {
   height: 200px;
 }
+.rating {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+}
+.stars-number {
+  line-height: 29px;
+  margin-right: 5px;
+}
+.stars-rating {
+  display: flex;
+}
 .star {
   cursor: pointer;
   height: 25px;
   width: 25px;
   margin: 2px;
-  float: left;
   background: grey;
   clip-path: polygon(
     50% 0%,

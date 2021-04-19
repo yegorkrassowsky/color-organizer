@@ -5,7 +5,7 @@ const ColorCards = () => {
   const { state } = useStore()
   const colors = state.colors
   return (
-    <div className="row mt-3 gy-4">
+    <div className="row mt-3 mb-4 gy-4">
       {(colors.length) ?
         colors.map((color) => (
           <ColorCard

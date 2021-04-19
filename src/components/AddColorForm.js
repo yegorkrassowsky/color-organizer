@@ -18,13 +18,13 @@ const AddColorForm = () => {
   }
   return (
     <div className="row mt-3">
-      <div className="col-sm-10">
+      <div className="col">
         <input type="text" className="form-control" placeholder="Color Title" ref={_title} />
       </div>
-      <div className="col-sm">
+      <div className="col-auto">
         <input type="color" className="form-control form-control-color" value={color} onChange={e => setColor(e.target.value)} />
       </div>
-      <div className="col-sm-auto">
+      <div className="col-auto">
         <button type="submit" className="btn btn-primary" onClick={newColor}>
           Add
         </button>

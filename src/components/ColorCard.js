@@ -8,7 +8,7 @@ const ColorCard = ( { color } ) => {
   const cardRef = useRef(null)
   const {title, rating} = color
   return (
-    <div className="col-sm-4">
+    <div className="col-lg-4 col-sm-6">
       <div className="card" ref={cardRef}>
         <Rating rating={rating} onRate={(rating)=>rateColor(color.id, rating)} />
         <div

@@ -24,7 +24,7 @@ const Title = ({ title, onRename=f=>f, onRemove=f=>f }) => {
     <div className="card-body text-center">
       <div className="title-container">
     {toggleEdit ? 
-      (<input className="form-control d-inline-block w-auto text-center" defaultValue={title} onBlur={endEdit} onKeyDown={(e)=>keyDownHandler(e)} ref={_title} type="text"></input>) : 
+      (<input className="form-control d-inline-block text-center" defaultValue={title} onBlur={endEdit} onKeyDown={(e)=>keyDownHandler(e)} ref={_title} type="text"></input>) : 
       (<h5 className="card-title" onClick={()=>setEdit(true)}>{title}</h5>)}
       </div>
       <button className="btn btn-primary" onClick={onRemove}>Delete</button>
