@@ -50,7 +50,12 @@ const StateProvider = ( { children } ) => {
 
   const [state, dispatch] = useReducerWithLogger(combineReducers({colors, sort}), addToast)
   const addColor = (title, color) => dispatch(addColorAction(title, color))
-  const removeColor = (id) => dispatch(removeColorAction(id))
+  const removeColor = (id) => {
+    const {title} = state.colors.find(color => color.id === id )
+    if(window.confirm(`Are you sure to delete color "${title}"?`)) {
+      dispatch(removeColorAction(id))
+    }
+  }
   const rateColor = (id, rating) => dispatch(rateColorAction(id, rating))
   const renameColor = (id, title) => dispatch(renameColorAction(id, title))
   useEffect(() => {
